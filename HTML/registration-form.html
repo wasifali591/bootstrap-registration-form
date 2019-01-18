@@ -1,0 +1,158 @@
+<!--
+* File Name  : registration-form
+* Description : html code to design a registration form and a table to show the data 
+* Created date : 17/01/2019
+* Author  : Md Wasif Ali
+* Comments : hole page is divided into to division: 1 for the registration for, another one for the table
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html" ; charset="utf-8">
+	<title>Registration</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/registration-style.css">
+</head>
+
+<body>
+	<!-- division for the registration form -->
+	<div class="form">
+		<!--registration form header-->
+		<div class="registrationFormHeader">
+			<h2>Registration</h2>
+		</div>
+		<!--registartion form body-->
+		<div class="registrationFormBody">
+			<div class="input">
+				<!--label for message-->
+				<label class="error" id="wrongInput"> </label>
+				<label>Name<span class="requiredField">*</span></label>
+				<div class="box">
+					<input id="name" class="formControl" type="text" name="name" required>
+				</div>
+				<span class="error" id="wrongName"> </span>
+			</div>
+
+			<div class="input">
+				<label>Email<span class="requiredField">*</span></label>
+				<div class="box">
+					<input id="email" class="formControl" type="email" name="email" required>
+				</div>
+				<label class="error" id="wrongEmail"> </label>
+			</div>
+
+			<div class="input">
+				<label>Password<span class="requiredField">*</span></label>
+				<div class="box">
+					<input id="password" class="formControl" type="password" name="password" required>
+				</div>
+				<label class="error" id="wrongPassword"> </label>
+			</div>
+
+			<div class="input">
+				<label>Address</label>
+				<div class="box">
+					<textarea id="address" class="formControl" name="address" placeholder="Parmanent Address"></textarea>
+				</div>
+			</div>
+
+			<div class="input">
+				<label>Country Name</label>
+				<div class="box">
+					<select id="selectCountry" class="formControl" size="1">
+					</select>
+				</div>
+			</div>
+
+			<div id="stateName" class="input">
+				<label >State Name</label>
+				<div class="box">
+					<select id="selectState" class="formControl" size="1">
+						<option value="" selected="selected">-- Select State--</option>
+					</select>
+				</div>
+			</div>
+
+			<div id="cityName" class="input">
+				<label >City Name</label>
+				<div class="box">
+					<select id="selectCity" class="formControl" size="1">
+						<option value="-1" selected="selected">-- Select City--</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="input">
+				<label>Date of Birth</label>
+				<div class="box">
+					<input id="dateOfBirth" class="formControl" type="date" name="dateOfBirth">
+				</div>
+			</div>
+
+			<div class="input">
+				<label>Gender</label>
+				<div class="box">
+					<input type="radio" name="gender" value="Male" id="Male" checked> Male<br>
+					<input type="radio" name="gender" value="Female" id="Female"> Female<br>
+					<input type="radio" name="gender" value="Other" id="Other"> Other
+				</div>
+			</div>
+
+			<div class="input">
+				<label>Category</label>
+				<div class="box">
+					<select id="casteCatagory" class="formControl" name="casteCatagory">
+						<option id="Gen">Gen</option>
+						<option id="SC">SC</option>
+						<option id="ST">ST</option>
+						<option id="OBC">OBC</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="input">
+				<label>Subject</label>
+				<div class="box">
+					<input type="checkbox" name="sub[]" value="PHP" id="PHP">PHP<br>
+					<input type="checkbox" name="sub[]" value="JAVA" id="JAVA">JAVA<br>
+					<input type="checkbox" name="sub[]" value="HTML" id="HTML">HTML<br>
+					<input type="checkbox" name="sub[]" value="CSS" id="CSS">CSS
+				</div>
+			</div>
+
+			<div class="input" id="registerButton">
+				<center>
+					<button type="button" name="registerButtonn" class="buttonDesign" id="registerButtonn">Register</button>
+				</center>
+			</div>
+		</div>
+	</div>
+	<!-- division for display the data -->
+	<div id="dataTable" style="font-size:18px;text-align:center; width: 100%;">
+		<div id="display">
+			<table id="registrationTable" class="dataTable">
+				<tr>
+					<th class="tableHead">Name</th>
+					<th class="tableHead">Email</th>
+					<th class="tableHead">Password</th>
+					<th class="tableHead">Address</th>
+					<th class="tableHead">Country</th>
+					<th class="tableHead">State</th>
+					<th class="tableHead">City</th>
+					<th class="tableHead">DOB</th>
+					<th class="tableHead">Gender</th>
+					<th class="tableHead">Catagory</th>
+					<th class="tableHead">Subject</th>
+					<th class="tableHead">Options</th>
+				</tr>
+				<tbody id="tableData">
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="../JS/data.js"></script>
+	<script src="../JS/registration-script.js"></script>
+</body>
+
+</html>

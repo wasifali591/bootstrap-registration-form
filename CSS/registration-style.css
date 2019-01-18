@@ -1,0 +1,75 @@
+/**
+* File Name  : registration-style
+* Description : css to design the registration-form
+* Created date : 17/01/2019
+* Author  : Md Wasif Ali
+* Comments : 
+*/
+body{
+	font-size:120%;
+	background-color:#CCCCCC;
+
+}
+/* a class to design the header of the form */
+.registrationFormHeader {
+	margin: auto;	
+	width:26%;
+	color: #FFFFFF;
+	background-color: #663366;
+	text-align:center;
+	border-radius: 10px 10px 0px 0px;
+	padding:20px;
+}
+/* a class to dsign for the rest of the form*/
+.registrationFormBody{
+	margin: auto;
+	width:26%;
+	padding:20px;
+	border-radius:0px 0px 10px 10px;
+	background-color:#FFFFFF;
+}
+.input label{
+	display:block;
+	text-align:left;
+}
+.formControl {
+	border-radius:5px;
+	border: none;
+	width:93%;
+	padding:5px 10px;
+	font-size:16px;
+	
+}
+
+.box{
+	width:90%;
+	font-size:16px;
+	border-radius:5px;
+	border: 1px solid gray;
+}
+/*a class to design the button */
+.buttonDesign{
+	padding:10px;
+	font-size:16px;
+	color:#FFFFFF;
+	background-color:#663366;
+	border:none;
+	border-radius:5px;
+}
+.requiredField{
+	color: red;
+}
+
+.error {
+	font-size: 15px;
+	color: red;
+}
+.tableHead {
+	text-align: center;
+	color:#FFFFFF;
+	background-color:#663366;
+}
+/* to address scroll bar in text area*/
+#address{
+    overflow-y:scroll;
+}
