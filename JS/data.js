@@ -33,16 +33,16 @@ function getCountries() {
                 "states": [
                     {
                         "stateName": "California",
-                        "cities": [{ "cityName": "Mednipur" },
-                        { "cityName": "Kolkata" },
-                        { "cityName": "Durgapur" }
+                        "cities": [{ "cityName": "San Francisco" },
+                        { "cityName": "Los Angeles" },
+                        { "cityName": "San Diego" }
                         ]
                     },
                     {
-                        "stateName": "Seattle",
-                        "cities": [{ "cityName": "Mednipur" },
-                        { "cityName": "Kolkata" },
-                        { "cityName": "Durgapur" }
+                        "stateName": "Washington",
+                        "cities": [{ "cityName": "Seattle" },
+                        { "cityName": "Port Angeles" },
+                        { "cityName": "Pasco" }
                         ]
                     }
                 ]

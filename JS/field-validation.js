@@ -12,7 +12,7 @@
 	comment: take the field-id(#name) as input, if the input does not matches with the validation show a error message
 */
 function checkNameValidation() {
-    $("#name").on('blur', function (event) {
+    $("#name").on('blur change keypress keyup', function (event) {
         name = $("#name").val();
         if (name.length === 0) {
             $("#wrongName").html("Enter your Name.");
@@ -32,7 +32,7 @@ function checkNameValidation() {
 	comment: take the field-id(#email) as input, if the input does not matches with the validation show a error message
 */
 function checkEmailValidation() {
-    $("#email").on('blur', function (event) {
+    $("#email").on('blur change keypress keyup', function (event) {
         email = $("#email").val();
         var re = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
         if (!re.test(email)) {
@@ -53,7 +53,7 @@ function checkEmailValidation() {
 	comment: take the field-id(#password) as input, if the input does not matches with the validation show a error message
 */
 function checkPasswordValidation() {
-    $("#password").on('blur change', function (event) {
+    $("#password").on('blur change keypress keyup', function (event) {
         password = $("#password").val();
         var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
         if (!re.test(password)) {

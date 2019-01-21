@@ -16,13 +16,16 @@ var countries = getCountries();
 function selectCountryName() {
     $('#stateName').hide();
     $('#cityName').hide();
+
     var selectCountry = $("#selectCountry");
     var options = "<option value='' selected='selected'>-- Select Country --</option>";
     jQuery.each(countries, function (key, value) {
         options += "<option value='" + value.countryName + "'>" + value.countryName + "</option>";
     });
     selectCountry.html(options);
+
     selectStateName();
+    
 }
 
 /*
@@ -31,9 +34,13 @@ function selectCountryName() {
     comments: ftech the state name form data.js file and show it to the corosponding dropdown
 */
 function selectStateName() {
+    // var cityOptions = "<option value='' selected='selected'>-- Select City --</option>";
+    // selectCity.html(cityOptions);
+
     var selectState = $("#selectState");
     $('#selectCountry').on('change', function () {
         $('#stateName').show();
+        $('#cityName').hide();
         var countryName = $('#selectCountry').val();
         var stateOptions = "<option value='' selected='selected'>-- Select States --</option>";
         jQuery.each(countries, function (key, value) {
