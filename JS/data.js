@@ -21,9 +21,9 @@ function getCountries() {
                     },
                     {
                         "stateName": "Odhisa",
-                        "cities": [{ "cityName": "Mednipur" },
-                        { "cityName": "Kolkata" },
-                        { "cityName": "Durgapur" }
+                        "cities": [{ "cityName": "Bhubaneswar" },
+                        { "cityName": "Rourkela" },
+                        { "cityName": "Cuttack" }
                         ]
                     }
                 ]
