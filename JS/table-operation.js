@@ -16,8 +16,10 @@ var tableOperation = (function () {
 
     function showResultOnTable() {
         name = $("#name").val();
-
         email = $("#email").val();
+        password = $("#password").val();
+        address = $("#address").val();
+        dob = $("#dateOfBirth").val();
         emailArray[registeredEmailIndex] = email;
         registeredEmailIndex++;
         formOperation.checkBoxes();
@@ -28,21 +30,44 @@ var tableOperation = (function () {
         data.push({
             name: name,
             email: email,
-            country: selectedCountry
+            password: password,
+            address: address,
+            country: selectedCountry,
+            state: selectedState,
+            city: SelectedCity,
+            dob: dob,
+            gender: checkedRadioButtons,
+            caste: casteCatagoryName,
+            subject: checkedCheckbox
         });
 
-        console.log(data);
+        var tableBody = $("#tableData");
+        var tableRow = document.createElement("tr");
+        tableRow.setAttribute("id", name);
 
-        $("#tableData").append('<tr><td class="editableColumns editName">'+ $("#name").val() + '</td><td class="editableColumns">'+
-            email + '</td><td class="editableColumns" >' + $("#password").val() + '</td><td class="editableColumns" >' +
-            $("#address").val()+'</td><td class="editableColumns">'+selectedCountry+'</td><td class="editableColumns" >' +
-            selectedState + '</td><td class="editableColumns" >' + SelectedCity + '</td><td class="editableColumns" >' +
-            $("#dateOfBirth").val() + '</td><td class="editableColumns" >' + checkedRadioButtons +
-            '</td><td class="editableColumns" >' + casteCatagoryName + '</td><td class="editableColumns" >' +
-            checkedCheckbox + '</td><td><input type="button" value="Edit" id="editButton" class="btn btn-primary">' +
-            '<input type="button" value="Delete" id="deleteButton" class="btn btn-danger">' +
-            '<input type="button" value="Save" class="btn btn-success" id="saveButton" style="display:none">' +
-            '<input type="button" value="Cancel" id="cancelButton" style="display:none" class="btn btn-info"></td></tr>');
+        tableRow.addEventListener('dblclick', function(e, ) {
+            editRow(e.target.parentNode.id);
+        });
+
+        var tableData = document.createElement("td");
+        var tableDataValue = document.createTextNode(name);
+
+        tableData.append(tableDataValue);
+        tableRow.append(tableData);
+
+        //tableRow.html= "<td class='editableColumns editName'>" + name + "</td>");
+
+        tableBody.append(tableRow);
+        // $("#tableData").append('<tr onClick="editRow()"><td class="editableColumns editName">' + name + '</td><td class="editableColumns">' +
+        //     email + '</td><td class="editableColumns" >' +password+ '</td><td class="editableColumns" >' +
+        //     address + '</td><td class="editableColumns">' + selectedCountry + '</td><td class="editableColumns" >' +
+        //     selectedState + '</td><td class="editableColumns" >' + SelectedCity + '</td><td class="editableColumns" >' +
+        //     dob + '</td><td class="editableColumns" >' + checkedRadioButtons +
+        //     '</td><td class="editableColumns" >' + casteCatagoryName + '</td><td class="editableColumns" >' +
+        //     checkedCheckbox + '</td><td><input type="button" value="Edit" id="editButton" class="btn btn-primary">' +
+        //     '<input type="button" value="Delete" id="deleteButton" class="btn btn-danger">' +
+        //     '<input type="button" value="Save" class="btn btn-success" id="saveButton" style="display:none">' +
+        //     '<input type="button" value="Cancel" id="cancelButton" style="display:none" class="btn btn-info"></td></tr>');
         $("#wrongInput").hide();
         inlineTableEdit();
     }
@@ -54,9 +79,18 @@ var tableOperation = (function () {
     */
 
     function inlineTableEdit() {
-        $("td").dblclick(function (event){
+        $("td").dblclick(function (event) {
             $(this).prop('contenteditable', true);
         });
+    }
+
+    function editRow(id) {
+        var selecteData = data.find(function(item) {
+            return id == item.name;
+        });
+
+        var tableRow = $("#"+id);
+        tableRow.html("<input type='text' value='"+name+"' />'");
     }
 
     /**
