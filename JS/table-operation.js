@@ -8,6 +8,10 @@
 
 var data = [];
 var tableOperation = (function () {
+    //
+    var editableContentsArray = [];
+    var editableContentIndex;
+
     /**
      * function-name: showResultOnTable
      * description: store the data taken from the form into the table
@@ -15,6 +19,10 @@ var tableOperation = (function () {
      */
 
     function showResultOnTable() {
+        var registeredEmailIndex = 0;
+        var checkedCheckbox = formOperation.checkBoxes();
+        var checkedRadioButtons = formOperation.gender();
+        var casteCatagoryName = formOperation.caste();
         name = $("#name").val();
         email = $("#email").val();
         password = $("#password").val();
@@ -22,52 +30,52 @@ var tableOperation = (function () {
         dob = $("#dateOfBirth").val();
         emailArray[registeredEmailIndex] = email;
         registeredEmailIndex++;
-        formOperation.checkBoxes();
-        formOperation.gender();
-        formOperation.caste();
+
+
+
         selectedCountryStateCityDetails();
 
-        data.push({
-            name: name,
-            email: email,
-            password: password,
-            address: address,
-            country: selectedCountry,
-            state: selectedState,
-            city: SelectedCity,
-            dob: dob,
-            gender: checkedRadioButtons,
-            caste: casteCatagoryName,
-            subject: checkedCheckbox
-        });
+        // data.push({
+        //     name: name,
+        //     email: email,
+        //     password: password,
+        //     address: address,
+        //     country: selectedCountry,
+        //     state: selectedState,
+        //     city: SelectedCity,
+        //     dob: dob,
+        //     gender: checkedRadioButtons,
+        //     caste: casteCatagoryName,
+        //     subject: checkedCheckbox
+        // });
 
-        var tableBody = $("#tableData");
-        var tableRow = document.createElement("tr");
-        tableRow.setAttribute("id", name);
+        // var tableBody = $("#tableData");
+        // var tableRow = document.createElement("tr");
+        // tableRow.setAttribute("id", name);
 
-        tableRow.addEventListener('dblclick', function(e, ) {
-            editRow(e.target.parentNode.id);
-        });
+        // tableRow.addEventListener('dblclick', function (e, ) {
+        //     editRow(e.target.parentNode.id);
+        // });
 
-        var tableData = document.createElement("td");
-        var tableDataValue = document.createTextNode(name);
+        // var tableData = document.createElement("td");
+        // var tableDataValue = document.createTextNode(name);
 
-        tableData.append(tableDataValue);
-        tableRow.append(tableData);
+        // tableData.append(tableDataValue);
+        // tableRow.append(tableData);
 
-        //tableRow.html= "<td class='editableColumns editName'>" + name + "</td>");
+        // //tableRow.html= "<td class='editableColumns editName'>" + name + "</td>");
 
-        tableBody.append(tableRow);
-        // $("#tableData").append('<tr onClick="editRow()"><td class="editableColumns editName">' + name + '</td><td class="editableColumns">' +
-        //     email + '</td><td class="editableColumns" >' +password+ '</td><td class="editableColumns" >' +
-        //     address + '</td><td class="editableColumns">' + selectedCountry + '</td><td class="editableColumns" >' +
-        //     selectedState + '</td><td class="editableColumns" >' + SelectedCity + '</td><td class="editableColumns" >' +
-        //     dob + '</td><td class="editableColumns" >' + checkedRadioButtons +
-        //     '</td><td class="editableColumns" >' + casteCatagoryName + '</td><td class="editableColumns" >' +
-        //     checkedCheckbox + '</td><td><input type="button" value="Edit" id="editButton" class="btn btn-primary">' +
-        //     '<input type="button" value="Delete" id="deleteButton" class="btn btn-danger">' +
-        //     '<input type="button" value="Save" class="btn btn-success" id="saveButton" style="display:none">' +
-        //     '<input type="button" value="Cancel" id="cancelButton" style="display:none" class="btn btn-info"></td></tr>');
+        // tableBody.append(tableRow);
+        $("#tableData").append('<tr onClick="editRow()"><td class="editableColumns editName">' + name + '</td><td class="editableColumns">' +
+            email + '</td><td class="editableColumns" >' + password + '</td><td class="editableColumns" >' +
+            address + '</td><td class="editableColumns">' + selectedCountry + '</td><td class="editableColumns" >' +
+            selectedState + '</td><td class="editableColumns" >' + SelectedCity + '</td><td class="editableColumns" >' +
+            dob + '</td><td class="editableColumns" >' + checkedRadioButtons +
+            '</td><td class="editableColumns" >' + casteCatagoryName + '</td><td class="editableColumns" >' +
+            checkedCheckbox + '</td><td><input type="button" value="Edit" id="editButton" class="btn btn-primary">' +
+            '<input type="button" value="Delete" id="deleteButton" class="btn btn-danger">' +
+            '<input type="button" value="Save" class="btn btn-success" id="saveButton" style="display:none">' +
+            '<input type="button" value="Cancel" id="cancelButton" style="display:none" class="btn btn-info"></td></tr>');
         $("#wrongInput").hide();
         inlineTableEdit();
     }
@@ -85,12 +93,12 @@ var tableOperation = (function () {
     }
 
     function editRow(id) {
-        var selecteData = data.find(function(item) {
+        var selecteData = data.find(function (item) {
             return id == item.name;
         });
 
-        var tableRow = $("#"+id);
-        tableRow.html("<input type='text' value='"+name+"' />'");
+        var tableRow = $("#" + id);
+        tableRow.html("<input type='text' value='" + name + "' />'");
     }
 
     /**

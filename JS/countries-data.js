@@ -9,6 +9,9 @@
 //relationship between country state and city
 var countriesData = (function () {
     var countries = getCountries();
+    var selectedCountry;
+    var selectedState;
+    var SelectedCity;
     /**
      * function-name:selectCountryName
      * description: make options for dropdown(selectCountry)

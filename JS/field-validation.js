@@ -59,8 +59,8 @@ var fieldValidation = (function () {
             password = $("#password").val();
             var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
             if (!re.test(password)) {
-                $("#wrongPassword").html("Password must contain the following:<br>"+
-                "1.A lower case letter<br>2.A capital letter<br>3.A number<br>4.Minimum 8 characters");
+                $("#wrongPassword").html("Password must contain the following:<br>" +
+                    "1.A lower case letter<br>2.A capital letter<br>3.A number<br>4.Minimum 8 characters");
                 $("#wrongPassword").show();
                 passwordHasError = 1;
             } else {

@@ -5,19 +5,7 @@
 * Author  : Md Wasif Ali
 * Comments : initially operations start form this file  
 */
-var nameHasError = 1;
-var emailHasError = 1;
-var passwordHasError = 1;
-var emailArray = [];
-var registeredEmailIndex = 0;
-var checkedCheckbox = [];
-var checkedRadioButtons = [];
-var casteCatagoryName;
-var selectedCountry;
-var selectedState;
-var SelectedCity;
-var editableContentsArray = [];
-var editableContentIndex;
+
 
 //initialization function
 $(function () {

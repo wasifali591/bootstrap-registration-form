@@ -7,6 +7,7 @@
 * Comments :all operations related to the form are present in this file  
 */
 var formOperation = (function () {
+
     /** 
      * function-name: hideLabelsForErrorMessage
      * description: hide all the labels designed for error message
@@ -27,6 +28,7 @@ var formOperation = (function () {
     */
 
     function selectCheckbox() {
+        var checkedCheckbox = [];
         var checkboxes = $("input[name='sub[]']");
         var j = 0;
         for (var i = 0; i < checkboxes.length; i++) {
@@ -35,6 +37,7 @@ var formOperation = (function () {
                 j++;
             }
         }
+        return checkedCheckbox;
     }
 
     /**
@@ -44,14 +47,14 @@ var formOperation = (function () {
      */
 
     function selectGender() {
+        var checkedRadioButtons;
         var radioButtons = $("input[name='gender']");
-        var j = 0;
         for (var i = 0; i < radioButtons.length; i++) {
             if (radioButtons[i].checked) {
-                checkedRadioButtons[j] = radioButtons[i].value;
-                j++;
+                checkedRadioButtons = radioButtons[i].value;
             }
         }
+        return checkedRadioButtons;
     }
 
     /**
@@ -61,7 +64,8 @@ var formOperation = (function () {
      */
 
     function selectCasteCatagory() {
-        casteCatagoryName = $('#casteCatagory').find(":selected").text();
+        var casteCatagoryName = $('#casteCatagory').find(":selected").text();
+        return casteCatagoryName;
     }
 
     /**
@@ -117,8 +121,9 @@ var formOperation = (function () {
     */
 
     function writeDataFormToTable() {
+
         $("#registerButtonn").click(function () {
-            if (nameHasError == 0 && emailHasError == 0 && passwordHasError == 0) {
+            if ( nameHasError == 0 && emailHasError == 0 && passwordHasError == 0) {
                 email = $("#email").val();
                 var flag = false;
                 for (var i = 0; i < emailArray.length; i++) {
