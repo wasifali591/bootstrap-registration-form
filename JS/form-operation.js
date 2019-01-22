@@ -2,10 +2,13 @@
 /**
 * File Name  : form-operation
 * Description : js file
-* Created date : 21/01/2019
+* Created date : 22/01/2019
 * Author  : Md Wasif Ali
 * Comments :all operations related to the form are present in this file  
 */
+
+//store all the registered email to prevent the duplicasy
+var emailArray = [];
 var formOperation = (function () {
 
     /** 

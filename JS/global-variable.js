@@ -1,7 +1,7 @@
-//store all the registered variable to prevent the duplicasy
-var emailArray = [];
-
-//flags to identify required data according to the fields is correct or not
-var nameHasError = 1;
-var emailHasError = 1;
-var passwordHasError = 1;
+/**
+* File Name  : global-variable
+* Description : js file
+* Created date : 22/01/2019
+* Author  : Md Wasif Ali
+* Comments : field validation checking methods are present in this file
+*/

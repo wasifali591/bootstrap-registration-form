@@ -1,7 +1,7 @@
 /**
 * File Name  : table-operations
 * Description : js file
-* Created date : 21/01/2019
+* Created date : 22/01/2019
 * Author  : Md Wasif Ali
 * Comments : all operations related to table like edit, delete methods are present
 */
@@ -66,7 +66,8 @@ var tableOperation = (function () {
         // //tableRow.html= "<td class='editableColumns editName'>" + name + "</td>");
 
         // tableBody.append(tableRow);
-        $("#tableData").append('<tr onClick="editRow()"><td class="editableColumns editName">' + name + '</td><td class="editableColumns">' +
+        
+        $("#tableData").append('<tr><td class="editableColumns editName">' + name + '</td><td class="editableColumns">' +
             email + '</td><td class="editableColumns" >' + password + '</td><td class="editableColumns" >' +
             address + '</td><td class="editableColumns">' + selectedCountry + '</td><td class="editableColumns" >' +
             selectedState + '</td><td class="editableColumns" >' + SelectedCity + '</td><td class="editableColumns" >' +
@@ -92,14 +93,14 @@ var tableOperation = (function () {
         });
     }
 
-    function editRow(id) {
-        var selecteData = data.find(function (item) {
-            return id == item.name;
-        });
+    // function editRow(id) {
+    //     var selecteData = data.find(function (item) {
+    //         return id == item.name;
+    //     });
 
-        var tableRow = $("#" + id);
-        tableRow.html("<input type='text' value='" + name + "' />'");
-    }
+    //     var tableRow = $("#" + id);
+    //     tableRow.html("<input type='text' value='" + name + "' />'");
+    //}
 
     /**
      * function-name: editTableData
