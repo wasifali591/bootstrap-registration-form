@@ -1,0 +1,72 @@
+[
+    {
+        "id": "India",
+        "name": "India",
+        "parent_id": "0"
+    },
+    {
+        "id": "America",
+        "name": "America",
+        "parent_id": "0"
+    },
+    {
+        "id": "Odisha",
+        "name": "Odisha",
+        "parent_id": "India"
+    },
+    {
+        "id": "West Bengal",
+        "name": "West Bengal",
+        "parent_id": "India"
+    },
+    {
+        "id": "Bhubaneswar",
+        "name": "Bhubaneswar",
+        "parent_id": "Odisha"
+    },
+    {
+        "id": "Cuttack",
+        "name": "Cuttack",
+        "parent_id": "Odisha"
+    },
+    {
+        "id": "Kolkata",
+        "name": "Kolkata",
+        "parent_id": "West Bengal"
+    },
+    {
+        "id": "Durgapur",
+        "name": "Durgapur",
+        "parent_id": "West Bengal"
+    },
+    {
+        "id": "California",
+        "name": "California",
+        "parent_id": "America"
+    },
+    {
+        "id": "Washington",
+        "name": "Washington",
+        "parent_id": "America"
+    },
+    {
+        "id": "Los Angeles",
+        "name": "Los Angeles",
+        "parent_id": "California"
+    },
+    {
+        "id": "San Diego",
+        "name": "San Diego",
+        "parent_id": "California"
+    },
+    {
+        "id": "Seattle",
+        "name": "Seattle",
+        "parent_id": "Washington"
+    },
+    {
+        "id": "Port Angeles",
+        "name": "Port Angeles",
+        "parent_id": "Washington"
+    }
+]

@@ -85,9 +85,9 @@ var formOperation = (function () {
         uncheckCheckbox();
         $('#Male').prop('checked', true);
         $('#casteCatagory').prop('selectedIndex', 0);
-        $('#selectCountry').prop('selectedIndex', 0);
-        $('#selectState').prop('selectedIndex', 0);
-        $('#selectCity').prop('selectedIndex', 0);
+        $('#country').prop('selectedIndex', 0);
+        $('#state').prop('selectedIndex', 0);
+        $('#city').prop('selectedIndex', 0);
     }
 
     /**
@@ -122,8 +122,15 @@ var formOperation = (function () {
 
     function writeDataFormToTable() {
 
-        $("#registerButtonn").click(function () {
-            if ( nameHasError == 0 && emailHasError == 0 && passwordHasError == 0) {
+        jQuery.validator.setDefaults({
+            debug: true,
+            success: true
+        });
+        var form = $("#registarForm");
+        form.validate();
+
+        $('#registerButtonn').click(function () {
+            if (form.valid() == true) {
                 email = $("#email").val();
                 var flag = false;
                 for (var i = 0; i < emailArray.length; i++) {
@@ -135,18 +142,15 @@ var formOperation = (function () {
                     alert("Email-Id is already used.Please try with a new Email-Id.")
                     resetForm();
                 } else {
-                    //showResultOnTable();
                     tableOperation.showData();
                     goUp();
+                    //(form).trigger('reset');
                     resetForm();
                 }
-            } else {
-                $("#wrongInput").html("Enter the required field");
-                $("#wrongInput").show();
-                goUp();
-            }
-        });
 
+            }
+
+        });
     }
     return {
         writeData: writeDataFormToTable,

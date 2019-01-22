@@ -7,94 +7,62 @@
 */
 
 //relationship between country state and city
-var countriesData = (function () {
-    var countries = getCountries();
-    var selectedCountry;
-    var selectedState;
-    var SelectedCity;
-    /**
-     * function-name:selectCountryName
-     * description: make options for dropdown(selectCountry)
-     * comments: ftech the country name form data.js file and show it to the corosponding dropdown
-     */
-
-    function selectCountryName() {
+var country = (function () {
+    function countryName() {
         $('#stateName').hide();
         $('#cityName').hide();
+        load_json_data('country', '');
+        function load_json_data(id, parent_id) {
+            var html_code = '';
+            $.getJSON('country-data.json', function (data) {
+                html_code += '<option value="">Select ' + id + '</option>';
+                //All the country values is loaded in this function
+                $.each(data, function (key, value) {
+                    if (id == 'country') {
+                        if (value.parent_id == '0') {
+                            html_code += '<option value="' + value.id + '">' + value.name + '</option>';
+                        }
+                    }
+                    else {
+                        if (value.parent_id == parent_id) {
+                            html_code += '<option value="' + value.id + '">' + value.name + '</option>';
+                        }
+                    }
+                });
+                console.log(html_code);
+                $('#' + id).html(html_code);
+            });
+        }
 
-        var selectCountry = $("#selectCountry");
-        var options = "<option value='' selected='selected'>-- Select Country --</option>";
-        jQuery.each(countries, function (key, value) {
-            options += "<option value='" + value.countryName + "'>" + value.countryName + "</option>";
-        });
-        selectCountry.html(options);
 
-        selectStateName();
-
-    }
-
-    /**
-     * function-name:selectStateName
-     * description: make options for dropdown(selectState)
-     * comments: ftech the state name form data.js file and show it to the corosponding dropdown 
-    */
-
-    function selectStateName() {
-        // var cityOptions = "<option value='' selected='selected'>-- Select City --</option>";
-        // selectCity.html(cityOptions);
-
-        var selectState = $("#selectState");
-        $('#selectCountry').on('change', function () {
+        //All the State values is loaded in this function
+        $(document).on('change', '#country', function () {
             $('#stateName').show();
             $('#cityName').hide();
-            var countryName = $('#selectCountry').val();
-            var stateOptions = "<option value='' selected='selected'>-- Select States --</option>";
-            jQuery.each(countries, function (key, value) {
-                if (countryName == value.countryName) {
-                    //console.log(value.states);
-                    jQuery.each(value.states, function (key, value) {
-                        stateOptions += "<option value='" + value.stateName + "'>" + value.stateName + "</option>";
-                    });
-                }
-            });
-            selectState.html(stateOptions);
+            var country_id = $(this).val();
+            if (country_id != '') {
+                load_json_data('state', country_id);
+            }
+            else {
+                $('#state').html('<option value="">Select state</option>');
+                $('#city').html('<option value="">Select city</option>');
+            }
         });
-        selectCityName();
-    }
 
-    /**
-     * function-name:selectCityName;
-     * description: make options for dropdown(selectCity)
-     * comments: ftech the city name form data.js file and show it to the corosponding dropdown
-     */
 
-    function selectCityName() {
-        var selectCity = $("#selectCity");
-        $('#selectState').on('change', function () {
+        //All the city value is loaded in this function
+        $(document).on('change', '#state', function () {
             $('#cityName').show();
-            var countryName = $('#selectCountry').val();
-            var stateName = $('#selectState').val();
-            var cityOptions = "<option value='' selected='selected'>-- Select City --</option>";
-            jQuery.each(countries, function (key, value) {
-                if (countryName == value.countryName) {
-
-                    jQuery.each(value.states, function (key, value) {
-                        if (stateName == value.stateName) {
-
-                            jQuery.each(value.cities, function (key, value) {
-                                cityOptions += "<option value='" + value.cityName + "'>" + value.cityName + "</option>";
-                            });
-                        }
-                    });
-                }
-            });
-            selectCity.html(cityOptions);
+            var state_id = $(this).val();
+            if (state_id != '') {
+                load_json_data('city', state_id);
+            }
+            else {
+                $('#city').html('<option value="">Select city</option>');
+            }
         });
     }
-
-    return {
-        countryName: selectCountryName,
-        stateName: selectStateName,
-        cityName: selectCityName
+    return{
+        countryName : countryName
     };
 })();

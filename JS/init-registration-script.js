@@ -9,13 +9,16 @@
 
 //initialization function
 $(function () {
-	countriesData.countryName();
+	country.countryName();
+	//countryData.country();
+	
 	//check all the required field vallidation
-	fieldValidation.nameValidation();
-	fieldValidation.emailValidation();
-	fieldValidation.passwordValidation();
+	// fieldValidation.nameValidation();
+	// fieldValidation.emailValidation();
+	// fieldValidation.passwordValidation();
+	validateForm.formValidation();
 	//form operation
-	formOperation.focusUp();
+	//formOperation.focusUp();
 	formOperation.hideLabel();
 	formOperation.writeData();
 	//operations on table

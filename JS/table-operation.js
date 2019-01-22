@@ -185,9 +185,9 @@ var tableOperation = (function () {
      */
 
     function selectedCountryStateCityDetails() {
-        selectedCountry = $('#selectCountry').find(":selected").text();
-        selectedState = $('#selectState').find(":selected").text();
-        SelectedCity = $('#selectCity').find(":selected").text();
+        selectedCountry = $('#country').find(":selected").text();
+        selectedState = $('#state').find(":selected").text();
+        SelectedCity = $('#city').find(":selected").text();
     }
 
     return {
