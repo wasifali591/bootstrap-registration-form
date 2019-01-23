@@ -66,18 +66,27 @@ var tableOperation = (function () {
         // //tableRow.html= "<td class='editableColumns editName'>" + name + "</td>");
 
         // tableBody.append(tableRow);
+        var tableData='';
+        
+        tableData +='<tr>';
+        tableData +='<td class="editableColumns">' + name + '</td>';
+        tableData +='<td>' + email + '</td>';
+        tableData +='<td class="editableColumns">' + password + '</td>';
+        tableData +='<td class="editableColumns">' + address + '</td>';
+        tableData +='<td class="editableColumns">' + selectedCountry + '</td>';
+        tableData +='<td class="editableColumns">' + selectedState + '</td>';
+        tableData +='<td class="editableColumns">' + SelectedCity + '</td>';
+        tableData +='<td class="editableColumns">' + dob + '</td>';
+        tableData +='<td class="editableColumns">' + checkedRadioButtons + '</td>';
+        tableData +='<td class="editableColumns">' + casteCatagoryName + '</td>';
+        tableData +='<td class="editableColumns">' + checkedCheckbox + '</td>';
+        tableData +='<td><input type="button" value="Edit" id="editButton" class="btn btn-primary">';
+        tableData +='<input type="button" value="Delete" id="deleteButton" class="btn btn-danger">';
+        tableData +='<input type="button" value="Save" class="btn btn-success" id="saveButton" style="display:none">';
+        tableData +='<input type="button" value="Cancel" id="cancelButton" style="display:none" class="btn btn-info"></td>';
+        tableData +='</tr>';
+        $("#tableData").append(tableData);
 
-        $("#tableData").append('<tr><td class="editableColumns editName">' + name + '</td><td class="editableColumns">' +
-            email + '</td><td class="editableColumns" >' + password + '</td><td class="editableColumns" >' +
-            address + '</td><td class="editableColumns">' + selectedCountry + '</td><td class="editableColumns" >' +
-            selectedState + '</td><td class="editableColumns" >' + SelectedCity + '</td><td class="editableColumns" >' +
-            dob + '</td><td class="editableColumns" >' + checkedRadioButtons +
-            '</td><td class="editableColumns" >' + casteCatagoryName + '</td><td class="editableColumns" >' +
-            checkedCheckbox + '</td><td><input type="button" value="Edit" id="editButton" class="btn btn-primary">' +
-            '<input type="button" value="Delete" id="deleteButton" class="btn btn-danger">' +
-            '<input type="button" value="Save" class="btn btn-success" id="saveButton" style="display:none">' +
-            '<input type="button" value="Cancel" id="cancelButton" style="display:none" class="btn btn-info"></td></tr>');
-        //$("#wrongInput").hide();
         inlineTableEdit();
     }
 
@@ -88,7 +97,7 @@ var tableOperation = (function () {
     */
 
     function inlineTableEdit() {
-        $("td").dblclick(function (event) {
+        $("td.editableColumns").dblclick(function (event) {
             $(this).prop('contenteditable', true);
         });
     }

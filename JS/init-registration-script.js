@@ -9,6 +9,7 @@
 
 //initialization function
 $(function () {
+	showUserData.userData();
 	country.countryName();
 	validateForm.formValidation();
 	//form operation
