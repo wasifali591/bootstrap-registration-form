@@ -5,7 +5,7 @@
 * Author  : Md Wasif Ali
 * Comments : 
 */
-body{
+.pageBody{
 	font-size:120%;
 	background-color:#CCCCCC;
 
@@ -14,9 +14,9 @@ body{
 .registrationFormHeader {
 	margin: auto;	
 	color: #FFFFFF;
-	background-color: #663366;
-	text-align:center;
 	border-radius: 10px 10px 0px 0px;
+	background-color: #663366;
+	text-align:center;	
 }
 /* a class to dsign for the rest of the form*/
 .registrationFormBody{
@@ -49,6 +49,10 @@ body{
 	border:none;
 	width: 100%;
 }
+.buttonDesign:hover{
+	color:#FFFFFF;
+	background-color:#088084;
+}
 .requiredField{
 	color: red;
 }
@@ -65,4 +69,10 @@ body{
 /* to address scroll bar in text area*/
 #addressScrool{
     overflow-y:scroll;
+}
+.dataTable {
+	padding-top: 10px;
+}
+.content{
+	padding-top: 10px;
 }

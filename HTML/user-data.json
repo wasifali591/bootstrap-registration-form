@@ -1,31 +1,28 @@
 [
     {
-        "name":"Abhisek",
-        "email":"m@n.op",
-        "password":"mkjn87",
-        "address":"mednapur",
-        "dob":"1995-1-3",
-        "country":"India",
-        "state":"West Bengal",
-        "city":"Kolkata",
-        "gender":"Male",
-        "caste":"OBC",
-        "subject":"JAVA,HTML"
-
+        "name": "Abhisek",
+        "email": "m@n.op",
+        "password": "mkjn87",
+        "address": "mednapur",
+        "dob": "1995-1-3",
+        "country": "India",
+        "state": "West Bengal",
+        "city": "Kolkata",
+        "gender": "Male",
+        "caste": "OBC",
+        "subject": "JAVA,HTML"
     },
     {
-        "name":"Altaf",
-        "email":"my@n.op",
-        "password":"mkjn87ws",
-        "address":"pandua",
-        "dob":"1995-6-13",
-        "country":"India",
-        "state":"West Bengal",
-        "city":"Durgapur",
-        "gender":"Male",
-        "caste":"Gen",
-        "subject":"PHP,HTML"
-
+        "name": "Altaf",
+        "email": "my@n.op",
+        "password": "mkjn87ws",
+        "address": "pandua",
+        "dob": "1995-6-13",
+        "country": "India",
+        "state": "West Bengal",
+        "city": "Durgapur",
+        "gender": "Male",
+        "caste": "Gen",
+        "subject": "PHP,HTML"
     }
-    
 ]

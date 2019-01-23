@@ -1,7 +1,7 @@
 /**
 * File Name  : countries-data
 * Description : js file
-* Created date : 22/01/2019
+* Created date : 23/01/2019
 * Author  : Md Wasif Ali
 * Comments : 
 */
@@ -28,7 +28,6 @@ var country = (function () {
                         }
                     }
                 });
-                console.log(html_code);
                 $('#' + id).html(html_code);
             });
         }

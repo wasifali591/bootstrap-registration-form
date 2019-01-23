@@ -22,17 +22,17 @@ var showUserData = (function () {
                 userData += '<td class="editableColumns">' + value.gender + '</td>';
                 userData += '<td class="editableColumns">' + value.caste + '</td>';
                 userData += '<td class="editableColumns">' + value.subject + '</td>';
-                userData +='<td><input type="button" value="Edit" id="editButton" class="btn btn-primary">';
-                userData +='<input type="button" value="Delete" id="deleteButton" class="btn btn-danger">';
-                userData +='<input type="button" value="Save" class="btn btn-success" id="saveButton" style="display:none">';
-                userData +='<input type="button" value="Cancel" id="cancelButton" style="display:none" class="btn btn-info"></td>';
+                userData += '<td><input type="button" value="Edit" id="editButton" class="btn btn-primary">';
+                userData += '<input type="button" value="Delete" id="deleteButton" class="btn btn-danger">';
+                userData += '<input type="button" value="Save" class="btn btn-success" id="saveButton" style="display:none">';
+                userData += '<input type="button" value="Cancel" id="cancelButton" style="display:none" class="btn btn-info"></td>';
                 userData += '</tr>';
 
             });
             $("#tableData").append(userData);
         });
     }
-    return{
-        userData:showUserData
+    return {
+        userData: showUserData
     };
 })();

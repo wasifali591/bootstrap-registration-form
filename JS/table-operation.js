@@ -1,12 +1,12 @@
 /**
 * File Name  : table-operations
 * Description : js file
-* Created date : 22/01/2019
+* Created date : 23/01/2019
 * Author  : Md Wasif Ali
 * Comments : all operations related to table like edit, delete methods are present
 */
 
-var data = [];
+//var data = [];
 var tableOperation = (function () {
     //
     var editableContentsArray = [];
@@ -30,9 +30,6 @@ var tableOperation = (function () {
         dob = $("#dateOfBirth").val();
         emailArray[registeredEmailIndex] = email;
         registeredEmailIndex++;
-
-
-
         selectedCountryStateCityDetails();
 
         // data.push({
@@ -66,40 +63,48 @@ var tableOperation = (function () {
         // //tableRow.html= "<td class='editableColumns editName'>" + name + "</td>");
 
         // tableBody.append(tableRow);
-        var tableData='';
-        
-        tableData +='<tr>';
-        tableData +='<td class="editableColumns">' + name + '</td>';
-        tableData +='<td>' + email + '</td>';
-        tableData +='<td class="editableColumns">' + password + '</td>';
-        tableData +='<td class="editableColumns">' + address + '</td>';
-        tableData +='<td class="editableColumns">' + selectedCountry + '</td>';
-        tableData +='<td class="editableColumns">' + selectedState + '</td>';
-        tableData +='<td class="editableColumns">' + SelectedCity + '</td>';
-        tableData +='<td class="editableColumns">' + dob + '</td>';
-        tableData +='<td class="editableColumns">' + checkedRadioButtons + '</td>';
-        tableData +='<td class="editableColumns">' + casteCatagoryName + '</td>';
-        tableData +='<td class="editableColumns">' + checkedCheckbox + '</td>';
-        tableData +='<td><input type="button" value="Edit" id="editButton" class="btn btn-primary">';
-        tableData +='<input type="button" value="Delete" id="deleteButton" class="btn btn-danger">';
-        tableData +='<input type="button" value="Save" class="btn btn-success" id="saveButton" style="display:none">';
-        tableData +='<input type="button" value="Cancel" id="cancelButton" style="display:none" class="btn btn-info"></td>';
-        tableData +='</tr>';
-        $("#tableData").append(tableData);
+        var tableData = '';
 
+        tableData += '<tr>';
+        tableData += '<td class="editableColumns">' + name + '</td>';
+        tableData += '<td>' + email + '</td>';
+        tableData += '<td class="editableColumns">' + password + '</td>';
+        tableData += '<td class="editableColumns">' + address + '</td>';
+        tableData += '<td class="editableColumns">' + selectedCountry + '</td>';
+        tableData += '<td class="editableColumns">' + selectedState + '</td>';
+        tableData += '<td class="editableColumns">' + SelectedCity + '</td>';
+        tableData += '<td class="editableColumns">' + dob + '</td>';
+        tableData += '<td class="editableColumns">' + checkedRadioButtons + '</td>';
+        tableData += '<td class="editableColumns">' + casteCatagoryName + '</td>';
+        tableData += '<td class="editableColumns">' + checkedCheckbox + '</td>';
+        tableData += '<td><input type="button" value="Edit" id="editButton" class="btn btn-primary">';
+        tableData += '<input type="button" value="Delete" id="deleteButton" class="btn btn-danger">';
+        tableData += '<input type="button" value="Save" class="btn btn-success" id="saveButton" style="display:none">';
+        tableData += '<input type="button" value="Cancel" class="btn btn-info" id="cancelButton" style="display:none"></td>';
+        tableData += '</tr>';
+        $("#tableData").append(tableData);
         inlineTableEdit();
     }
 
-    /** 
+    /**  
      * function-name:inlineTableEdit
      * description:to edit table data, dpouble click on the table field
      * comments:
     */
 
     function inlineTableEdit() {
-        $("td.editableColumns").dblclick(function (event) {
-            $(this).prop('contenteditable', true);
+        // $(regTable).on('dblclick', 'td.editableColumns', function (event) {
+        //     $(this).prop('contenteditable', true);
+        // });
+        // $('#registrationTable').find('td.editableColumns').dblclick(function(){
+        //     $(this).prop('contenteditable', true);
+        // });
+        $("td").dblclick(function () {
+            if ($(this).hasClass("editableColumns")) {
+                $(this).prop('contenteditable', true);
+            }
         });
+
     }
 
     // function editRow(id) {
@@ -125,9 +130,7 @@ var tableOperation = (function () {
                 $(this).prop('contenteditable', true);
                 editableContentsArray[editableContentIndex] = $(this).html();
                 editableContentIndex++;
-
             });
-
             $(this).hide();
             $("#deleteButton").hide();
             $("#saveButton").show();
@@ -147,11 +150,11 @@ var tableOperation = (function () {
             $(this).parents('tr').find('td.editableColumns').each(function () {
                 $(this).prop('contenteditable', false);
             });
-
             $(this).hide();
             $("#deleteButton").show();
             $("#editButton").show();
             $("#cancelButton").hide();
+
         });
     }
     /**
@@ -168,13 +171,13 @@ var tableOperation = (function () {
                 $(this).prop('contenteditable', false);
                 $(this).html(editableContentsArray[editableContentIndex]);
                 editableContentIndex++;
-
             });
 
             $(this).hide();
             $("#deleteButton").show();
             $("#saveButton").hide();
             $("#editButton").show();
+
         });
     }
 
@@ -209,7 +212,8 @@ var tableOperation = (function () {
         saveTable: saveTableData,
         cancelEdit: cancelTableEdit,
         deleteRow: deleteTableRow,
-        showData: showResultOnTable
+        showData: showResultOnTable,
+        inlineEdit: inlineTableEdit
     };
 
 })();

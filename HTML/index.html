@@ -26,22 +26,24 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="pageBody">
     <!-- division for the registration form -->
-    <div class="container-fluid">
+    <div class="container-fluid content">
         <form id="registarForm">
             <!--registration form header-->
-            <div class="row">
-                <div class="registrationFormHeader form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h2>Registration</h2>
+            <div class="registrationFormHeader">
+                <div class="row">
+                    <div class=" form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h2>Registration</h2>
+                    </div>
                 </div>
             </div>
             <!--registration form body-->
             <div class="registrationFormBody">
+
                 <div class="row">
+
                     <div class="input form-group col-xs-12 col-sm-12 col-md-6 col-lg-4">
-                        <!--label for message-->
-                        <label class="error" id="wrongInput"> </label>
                         <label>Name<span class="requiredField">*</span></label>
                         <div class="box">
                             <input id="name" class=" form-control formControl" type="text" name="name" data-validation="length required"
@@ -62,8 +64,12 @@
                             <input id="password" class="formControl form-control" type="password" name="password">
                         </div>
                     </div>
+
                 </div>
+
+
                 <div class="row">
+
                     <div class="input form-group col-xs-12 col-sm-12 col-md-6 col-lg-8">
                         <label>Address</label>
                         <div class="box">
@@ -71,14 +77,19 @@
                                 placeholder="Parmanent Address"></textarea>
                         </div>
                     </div>
+
                     <div class="input form-group col-xs-12 col-sm-12 col-md-6 col-lg-4">
                         <label>Date of Birth</label>
                         <div class="box">
                             <input id="dateOfBirth" class="formControl form-control" type="date" name="dateOfBirth">
                         </div>
                     </div>
+
                 </div>
+
+
                 <div class="row">
+
                     <div class="input form-group col-xs-12 col-sm-12 col-md-6 col-lg-4" id="countryName">
                         <label>Country Name</label>
                         <div class="box">
@@ -107,7 +118,10 @@
                     </div>
 
                 </div>
+
+
                 <div class="row">
+
                     <div class="input form-group col-xs-12 col-sm-12 col-md-6 col-lg-4">
                         <label>Gender</label>
                         <div class=" box ">
@@ -139,24 +153,30 @@
                         </div>
                     </div>
                 </div>
+
+
                 <div class="row">
+
                     <div class="col-xs-0 col-sm-1 col-md-2 col-lg-3">
 
                     </div>
+
                     <div class="input form-group input form-group col-xs-12 col-sm-10 col-md-8 col-lg-6" id="registerButton">
                         <center>
                             <button name="registerButtonn" class="btn btn-default buttonDesign " id="registerButtonn">Register</button>
                         </center>
                     </div>
+
                     <div class="col-xs-0 col-sm-1 col-md-2 col-lg-3">
 
                     </div>
                 </div>
+
             </div>
 
         </form>
         <!-- division for display the data -->
-        <div class="row">
+        <div class="row dataTable">
             <div id="display" class="table-responsive col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <table id="registrationTable" class="table table-hover">
                     <tr>
@@ -173,6 +193,7 @@
                         <th class="tableHead">Subject</th>
                         <th class="tableHead">Options</th>
                     </tr>
+
                     <tbody id="tableData">
                     </tbody>
                 </table>
