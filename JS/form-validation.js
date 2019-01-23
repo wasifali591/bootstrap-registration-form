@@ -9,7 +9,6 @@
 var validateForm = (function () {
 
     function formValidation() {
-
         $.validator.addMethod('strongPassword', function (value, element) {
             return this.optional(element) ||
                 value.length >= 6 &&
@@ -44,7 +43,7 @@ var validateForm = (function () {
             }
         });
     }
-    return{
-        formValidation:formValidation
+    return {
+        formValidation: formValidation
     };
 })();

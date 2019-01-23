@@ -2,28 +2,18 @@
 /**
 * File Name  : form-operation
 * Description : js file
-* Created date : 22/01/2019
+* Created date : 23/01/2019
 * Author  : Md Wasif Ali
 * Comments :all operations related to the form are present in this file  
 */
 
-//store all the registered email to prevent the duplicasy
-var emailArray = [];
+
+
 var formOperation = (function () {
-
-    /** 
-     * function-name: hideLabelsForErrorMessage
-     * description: hide all the labels designed for error message
-     * comments:
-    */
-
-    function hideLabelsForErrorMessage() {
-        $("#wrongName").hide();
-        $("#wrongEmail").hide();
-        $("#wrongPassword").hide();
-        $("#wrongInput").hide();
-    }
-
+    var checkboxes = $("input[name='sub[]']");
+    var radioButtons = $("input[name='gender']");
+    var form = $("#registarForm");
+    var mail = $("#email");
     /** 
      * function-name:selectCheckbox
      * description: read the checked checkboxes value
@@ -32,7 +22,7 @@ var formOperation = (function () {
 
     function selectCheckbox() {
         var checkedCheckbox = [];
-        var checkboxes = $("input[name='sub[]']");
+
         var j = 0;
         for (var i = 0; i < checkboxes.length; i++) {
             if (checkboxes[i].checked) {
@@ -51,7 +41,7 @@ var formOperation = (function () {
 
     function selectGender() {
         var checkedRadioButtons;
-        var radioButtons = $("input[name='gender']");
+
         for (var i = 0; i < radioButtons.length; i++) {
             if (radioButtons[i].checked) {
                 checkedRadioButtons = radioButtons[i].value;
@@ -78,10 +68,8 @@ var formOperation = (function () {
             catagory are reset into a general value    
     */
     function resetForm() {
-        $('#stateName').hide();
-        $('#cityName').hide();
         $('#name').val("");
-        $('#email').val("");
+        $(mail).val("");
         $('#password').val("");
         $('#address').val("");
         $('dateOfBirth').val("");
@@ -89,6 +77,8 @@ var formOperation = (function () {
         $('#Male').prop('checked', true);
         $('#casteCatagory').prop('selectedIndex', 0);
         $('#country').prop('selectedIndex', 0);
+        $('#states').prop('selectedIndex', 0);
+        $('#city').prop('selectedIndex', 0);
         $('#state').prop('selectedIndex', 0);
         $('#city').prop('selectedIndex', 0);
     }
@@ -129,12 +119,12 @@ var formOperation = (function () {
             debug: true,
             success: true
         });
-        var form = $("#registarForm");
+
         form.validate();
 
         $('#registerButtonn').click(function () {
             if (form.valid() == true) {
-                email = $("#email").val();
+                email = mail.val();
                 var flag = false;
                 for (var i = 0; i < emailArray.length; i++) {
                     if (emailArray[i] == email) {
@@ -147,7 +137,6 @@ var formOperation = (function () {
                 } else {
                     tableOperation.showData();
                     goUp();
-                    //(form).trigger('reset');
                     resetForm();
                 }
 
@@ -158,7 +147,6 @@ var formOperation = (function () {
     return {
         writeData: writeDataFormToTable,
         focusUp: goUp,
-        hideLabel: hideLabelsForErrorMessage,
         checkBoxes: selectCheckbox,
         gender: selectGender,
         caste: selectCasteCatagory

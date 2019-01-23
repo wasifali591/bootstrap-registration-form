@@ -1,7 +1,7 @@
 /**
 * File Name  : registration-style
 * Description : css to design the registration-form
-* Created date : 21/01/2019
+* Created date : 23/01/2019
 * Author  : Md Wasif Ali
 * Comments : 
 */
@@ -17,7 +17,6 @@ body{
 	background-color: #663366;
 	text-align:center;
 	border-radius: 10px 10px 0px 0px;
-	padding:20px;
 }
 /* a class to dsign for the rest of the form*/
 .registrationFormBody{

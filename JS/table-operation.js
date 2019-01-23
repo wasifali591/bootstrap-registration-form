@@ -11,7 +11,7 @@ var tableOperation = (function () {
     //
     var editableContentsArray = [];
     var editableContentIndex;
-
+    var regTable = $("#registrationTable");
     /**
      * function-name: showResultOnTable
      * description: store the data taken from the form into the table
@@ -66,7 +66,7 @@ var tableOperation = (function () {
         // //tableRow.html= "<td class='editableColumns editName'>" + name + "</td>");
 
         // tableBody.append(tableRow);
-        
+
         $("#tableData").append('<tr><td class="editableColumns editName">' + name + '</td><td class="editableColumns">' +
             email + '</td><td class="editableColumns" >' + password + '</td><td class="editableColumns" >' +
             address + '</td><td class="editableColumns">' + selectedCountry + '</td><td class="editableColumns" >' +
@@ -77,7 +77,7 @@ var tableOperation = (function () {
             '<input type="button" value="Delete" id="deleteButton" class="btn btn-danger">' +
             '<input type="button" value="Save" class="btn btn-success" id="saveButton" style="display:none">' +
             '<input type="button" value="Cancel" id="cancelButton" style="display:none" class="btn btn-info"></td></tr>');
-        $("#wrongInput").hide();
+        //$("#wrongInput").hide();
         inlineTableEdit();
     }
 
@@ -109,18 +109,20 @@ var tableOperation = (function () {
      */
 
     function editTableData() {
-        $("#registrationTable").on('click', 'input[id="editButton"]', function (event) {
+        $(regTable).on('click', 'input[id="editButton"]', function (event) {
             editableContentIndex = 0;
-            $(this).hide();
-            $("#deleteButton").hide();
-            $("#saveButton").show();
-            $("#cancelButton").show();
+
             $(this).parents('tr').find('td.editableColumns').each(function () {
                 $(this).prop('contenteditable', true);
                 editableContentsArray[editableContentIndex] = $(this).html();
                 editableContentIndex++;
 
             });
+
+            $(this).hide();
+            $("#deleteButton").hide();
+            $("#saveButton").show();
+            $("#cancelButton").show();
         });
     }
 
@@ -132,10 +134,11 @@ var tableOperation = (function () {
 
 
     function saveTableData() {
-        $("#registrationTable").on('click', 'input[id="saveButton"]', function (event) {
+        $(regTable).on('click', 'input[id="saveButton"]', function (event) {
             $(this).parents('tr').find('td.editableColumns').each(function () {
                 $(this).prop('contenteditable', false);
             });
+
             $(this).hide();
             $("#deleteButton").show();
             $("#editButton").show();
@@ -150,7 +153,7 @@ var tableOperation = (function () {
      */
 
     function cancelTableEdit() {
-        $("#registrationTable").on('click', 'input[id="cancelButton"]', function (event) {
+        $(regTable).on('click', 'input[id="cancelButton"]', function (event) {
             editableContentIndex = 0;
             $(this).parents('tr').find('td.editableColumns').each(function () {
                 $(this).prop('contenteditable', false);
@@ -158,6 +161,7 @@ var tableOperation = (function () {
                 editableContentIndex++;
 
             });
+
             $(this).hide();
             $("#deleteButton").show();
             $("#saveButton").hide();
@@ -171,7 +175,7 @@ var tableOperation = (function () {
      * comments: row will be deleted after a confermation checking
     */
     function deleteTableRow() {
-        $("#registrationTable").on('click', 'input[id="deleteButton"]', function (event) {
+        $(regTable).on('click', 'input[id="deleteButton"]', function (event) {
             var choice = confirm('Do you really want to delete this record?');
             if (choice === true) {
                 $(this).parent().parent().remove();
