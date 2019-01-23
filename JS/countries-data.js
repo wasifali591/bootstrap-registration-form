@@ -9,8 +9,8 @@
 //relationship between country state and city
 var country = (function () {
     function countryName() {
-        $('#stateName').hide();
-        $('#cityName').hide();
+        // $('#stateName').hide();
+        // $('#cityName').hide();
         load_json_data('country', '');
         function load_json_data(id, parent_id) {
             var html_code = '';
@@ -37,8 +37,8 @@ var country = (function () {
 
         //All the State values is loaded in this function
         $(document).on('change', '#country', function () {
-            $('#stateName').show();
-            $('#cityName').hide();
+            // $('#stateName').show();
+            // $('#cityName').hide();
             var country_id = $(this).val();
             if (country_id != '') {
                 load_json_data('state', country_id);
@@ -52,7 +52,7 @@ var country = (function () {
 
         //All the city value is loaded in this function
         $(document).on('change', '#state', function () {
-            $('#cityName').show();
+            // $('#cityName').show();
             var state_id = $(this).val();
             if (state_id != '') {
                 load_json_data('city', state_id);
